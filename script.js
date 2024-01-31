@@ -1,6 +1,8 @@
 const botaoPlayPause = document.getElementById('play-pause');
 const botaoAvancar = document.getElementById('proximo');
+const botaoVoltar = document.getElementById('anterior');
 const audioMusica = document.getElementById('audio-musica');
+const nomeMusica = document.getElementById('faixa');
 const numeroFaixas = 24;
 let tocando = 0;
 let faixaAtual = 1;
@@ -12,7 +14,8 @@ var faixasAlbum = [
     "Beno!",
     "JumpOutTheHouse",
     "M3tamorphosis (feat. Kid Cudi)",
-    "Not PLaying",
+    "Slay3r",
+    "No Sl33p",
     "New Tank",
     "Teen X (feat. Future)",
     "Meh",
@@ -25,11 +28,10 @@ var faixasAlbum = [
     "Place",
     "Sky",
     "Over",
-    "ILoveUIHateU (feat. Trippie Redd)",
+    "ILoveUIHateU",
     "Die4Guy",
-    "Not From The Industry",
+    "Not PLaying",
     "F33l Lik3 Dyin",
-    "Place (feat. Drake) [Deluxe Edition]"
 ];
 
 function tocarFaixa(){
@@ -62,7 +64,24 @@ function proximaFaixa(){
     }
     audioMusica.src = './musics/wlr/' + faixaAtual + '.mp3';
     tocarFaixa();
+    atualizaNomeFaixa();
+}
+
+function voltarFaixa(){
+    if (faixaAtual === 1){
+        faixaAtual = numeroFaixas;
+    } else {
+        faixaAtual = faixaAtual - 1;
+    }
+    audioMusica.src = './musics/wlr/' + faixaAtual + '.mp3';
+    tocarFaixa();
+    atualizaNomeFaixa();
+}
+
+function atualizaNomeFaixa (){
+    nomeMusica.innerText = '#' + faixaAtual + ' - ' + faixasAlbum[faixaAtual-1];
 }
 
 botaoPlayPause.addEventListener('click', tocarOuPausar);
 botaoAvancar.addEventListener('click', proximaFaixa);
+botaoVoltar.addEventListener('click', voltarFaixa);
