@@ -1,0 +1,1 @@
+const   numeroFaixas = 24
