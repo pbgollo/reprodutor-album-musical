@@ -51,8 +51,8 @@ button {
 }
 
 #container-botoes {
-  width: 80%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content:space-around;
   margin: 30px;
 }
