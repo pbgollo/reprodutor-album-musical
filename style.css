@@ -53,6 +53,6 @@ button {
 #container-botoes {
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  margin: 20%;
+  justify-content: center;
+  margin: 10px;
 }
